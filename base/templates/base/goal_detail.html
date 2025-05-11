@@ -1,0 +1,11 @@
+{% extends 'base/main.html' %}
+{% block content %}
+  <h1>{{ object.title }}</h1>
+  <p>{{ object.description }}</p>
+  <p>Due: {{ object.due_date }}</p>
+  <p>Status: {% if object.is_completed %}✅ Completed{% else %}⏳ In Progress{% endif %}</p>
+
+  <a href="{% url 'goal_edit' object.pk %}">Edit</a> |
+  <a href="{% url 'goal_delete' object.pk %}">Delete</a> |
+  <a href="{% url 'goal_list' %}">Back to List</a>
+{% endblock %}
